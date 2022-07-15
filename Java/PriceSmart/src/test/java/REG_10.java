@@ -1,5 +1,8 @@
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.ClubDetailsPage;
 import pages.ClubListPage;
 import pages.HomePage;
 
@@ -10,22 +13,30 @@ public class REG_10 extends BaseTests {
 
     @Test
     public void LocalClubInformationRequest(){
+        driver.get("https://www.pricesmart.com/site/cr/es");
         HomePage homePage = new HomePage(driver);
-        homePage.ScheduleAndLocationsButton().click();
         ClubListPage clubListPage = new ClubListPage(driver);
+        ClubDetailsPage clubDetailsPage = new ClubDetailsPage(driver);
+        homePage.ScheduleAndLocationsButton().click();
         clubListPage.ClubInformationLink("Zapote").click();
+        String URL = driver.getCurrentUrl();
+        Assert.assertEquals(URL , "https://www.pricesmart.com/site/cr/es/ubicacion-de-club/club/zapote");
+        Assert.assertTrue(clubDetailsPage.ClubAddress().isDisplayed());
+        Assert.assertTrue(clubDetailsPage.ClubSchedule().isDisplayed());
+
     }
 
     @Test
-    public void verifyInstagramLink(){
+    public void ForeignClubInformationRequest(){
+        driver.get("https://www.pricesmart.com/site/cr/es");
         HomePage homePage = new HomePage(driver);
-        System.out.println(driver.getCurrentUrl());
-        homePage.InstagramButton().click();
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        Assert.assertEquals(tabs.size(),2);
-        driver.switchTo().window(tabs.get(1));
+        ClubListPage clubListPage = new ClubListPage(driver);
+        ClubDetailsPage clubDetailsPage = new ClubDetailsPage(driver);
+        homePage.ScheduleAndLocationsButton().click();
+        clubListPage.ClubInformationLink("Santa Elena").click();
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL , "https://www.instagram.com/accounts/login/?next=/pricesmartcr/");
-
+        Assert.assertEquals(URL , "https://www.pricesmart.com/site/cr/es/ubicacion-de-club/club/santa-elena");
+        Assert.assertTrue(clubDetailsPage.ClubAddress().isDisplayed());
+        Assert.assertTrue(clubDetailsPage.ClubSchedule().isDisplayed());
     }
 }

@@ -31,6 +31,5 @@ public class REG_09 extends BaseTests {
         driver.switchTo().window(tabs.get(1));
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL , "https://www.instagram.com/accounts/login/?next=/pricesmartcr/");
-
     }
 }
