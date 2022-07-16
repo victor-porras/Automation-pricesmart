@@ -1,35 +1,40 @@
 /* const { Builder, Browser, By, Key } = require('selenium-webdriver'); */
 const { Builder, Browser, By, Key, until } = require("selenium-webdriver");
 
-async function pruebaReg15() {
-
+(async function pruebaReg15() {
     // Ejecutamos el navegador
     let driver = await new Builder().forBrowser(Browser.CHROME).build();
 
-    // Navegamos hasta el sitio web.
-    await driver.get("https://www.pricesmart.com/site/cr/es/pagina-producto/382838");
+    try {
 
-    // Se busca el elemento input para colocar cantidad de producto para pasarle un valor y luego perder el foco y obtener la validación.
-    await driver.findElement(By.id("customValue")).sendKeys(300000, Key.TAB);
+        // Navegamos hasta el sitio web.
+        await driver.get("https://www.pricesmart.com/site/cr/es/pagina-producto/382838");
 
-    // Se busca el elemento que invoca el modal para seleccionar un club
-    await driver.findElement(By.id("club-location-picker-modal")).click();
+        // Se busca el elemento input para colocar cantidad de producto para pasarle un valor y luego perder el foco y obtener la validación.
+        await driver.findElement(By.id("customValue")).sendKeys(300000, Key.TAB);
 
-    // busca hasta que encuentra cualquier boton de cambiar club con un esperar explicito de 30 segundos
-    // luego si lo encuentra usar el retorno de la promesa para ejecutar javascript vanilla y dar click al boton
-    await driver.wait(until.elementLocated(By.id("select-club")), 30000)
-        .then(async () => {
-            await driver.executeScript(`document.getElementById("select-club").click()`)
-        });
+        // Se busca el elemento que invoca el modal para seleccionar un club
+        await driver.findElement(By.id("club-location-picker-modal")).click();
 
-    await driver.findElement(By.id("customValue")).sendKeys(300000, Key.TAB);
+        // busca hasta que encuentra cualquier boton de cambiar club con un esperar explicito de 30 segundos
+        // luego si lo encuentra usar el retorno de la promesa para ejecutar javascript vanilla y dar click al boton
+        await driver.wait(until.elementLocated(By.id("select-club")), 30000)
+            .then(async () => {
+                await driver.executeScript(`document.getElementById("select-club").click()`)
+            });
 
-    //finaliza el caso de prueba.
+        await driver.findElement(By.id("customValue")).sendKeys(300000, Key.TAB);
+
+        //finaliza el caso de prueba.
+    } catch (error) {
+        console.log("Existio un error", error);
+    } finally {
+        console.log("Debido al error se cerrara automaticamente el navegador");
+        await driver.quit();
+    }
 
 
-};
-
-pruebaReg15();
+})();
 
 
 
