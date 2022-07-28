@@ -2,7 +2,7 @@
 const { Builder, Browser, By, Key, until } = require("selenium-webdriver");
 
 async function pruebaReg15() {
-    let error2 = null;
+
     // Ejecutamos el navegador
     let driver = await new Builder().forBrowser(Browser.CHROME).build();
 
@@ -24,6 +24,7 @@ async function pruebaReg15() {
             });
 
         await driver.findElement(By.id("customValue")).sendKeys(300000, Key.TAB);
+        //await driver.quit();
     } catch (error) {
         console.log(error);
     }
