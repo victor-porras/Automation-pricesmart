@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -48,5 +48,17 @@ public class HomePage extends BasePage{
 
     public WebElement CarrouselButton(String index) {
         return driver.findElement(By.cssSelector("div.carousel-inner .carousel-item:nth-child(" + index + ") .carousel-caption a"));
+    }
+
+    public WebElement DropdownMenuButton() {
+        return driver.findElement(By.id("dropdownMenuButton"));
+    }
+
+    public WebElement LoginButton() {
+        return driver.findElement(By.id("login-button"));
+    }
+
+    public WebElement SignUpButton() {
+        return driver.findElement(By.id("signup-button"));
     }
 }
