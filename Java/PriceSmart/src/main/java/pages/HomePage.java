@@ -61,4 +61,8 @@ public class HomePage extends BasePage {
     public WebElement SignUpButton() {
         return driver.findElement(By.id("signup-button"));
     }
+
+    public WebElement NewProductsLink() {
+        return driver.findElement(By.cssSelector("div.card-access-links-cont .card-block:nth-child(5) a"));
+    }
 }
