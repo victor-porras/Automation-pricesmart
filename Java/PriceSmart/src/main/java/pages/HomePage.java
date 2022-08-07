@@ -65,4 +65,12 @@ public class HomePage extends BasePage {
     public WebElement NewProductsLink() {
         return driver.findElement(By.cssSelector("div.card-access-links-cont .card-block:nth-child(5) a"));
     }
+
+    public WebElement SignOutButton() {
+        return driver.findElement(By.id("signout-button"));
+    }
+
+    public WebElement DropDownMenuFirstButton() {
+        return driver.findElement(By.cssSelector("div.membership-dropdown-body-cont .btn-blue-psmt"));
+    }
 }
