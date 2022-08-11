@@ -24,4 +24,6 @@ public class LoginPage extends BasePage {
     public WebElement LoginButton() {
         return driver.findElement(By.id("kc-login"));
     }
+
+    public WebElement ContinueShopping(){ return driver.findElement(By.cssSelector("body > div > div.container-footer > div > div > div:nth-child(1) > div > a")); }
 }

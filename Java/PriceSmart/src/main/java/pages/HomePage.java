@@ -73,4 +73,9 @@ public class HomePage extends BasePage {
     public WebElement DropDownMenuFirstButton() {
         return driver.findElement(By.cssSelector("div.membership-dropdown-body-cont .btn-blue-psmt"));
     }
+
+    public WebElement DropDownCategoryMenu() {return driver.findElement(By.id("psmt-nav-menu-mobile")); }
+
+    public WebElement OptionLicorCervezaVino() { return driver.findElement(By.id("Licor,cervezayvino")); }
+
 }
