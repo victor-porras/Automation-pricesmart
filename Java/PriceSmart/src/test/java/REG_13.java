@@ -10,9 +10,9 @@ public class REG_13 extends BaseTests {
         LoginPage loginPage = new LoginPage(driver);
         homePage.DropdownMenuButton().click();
         homePage.LoginButton().click();
-        loginPage.UsernameInput().sendKeys("64020113090001");
+        loginPage.UsernameInput().sendKeys("USERNAME");
         loginPage.MarketplaceLoginButton().click();
-        loginPage.PasswordInput().sendKeys("pumpkin88");
+        loginPage.PasswordInput().sendKeys("PASSWORD");
         loginPage.LoginButton().click();
         homePage.DropdownMenuButton().click();
         homePage.SignOutButton().click();
