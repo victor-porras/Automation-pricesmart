@@ -30,6 +30,7 @@ public class REG_09 extends BaseTests {
         Assert.assertEquals(tabs.size(),2);
         driver.switchTo().window(tabs.get(1));
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL , "https://www.instagram.com/accounts/login/?next=/pricesmartcr/");
+        Assert.assertTrue(URL.contains("https://www.instagram.com/"));
+        Assert.assertTrue(URL.contains("/pricesmartcr/"));
     }
 }

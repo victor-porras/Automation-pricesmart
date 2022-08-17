@@ -22,8 +22,8 @@ public class REG_14 extends BaseTests {
         Assert.assertTrue(homePage.CarrouselTitle("2").isDisplayed());
         Assert.assertTrue(homePage.CarrouselContent("2").isDisplayed());
         Assert.assertTrue(homePage.CarrouselButton("2").isDisplayed());
-        Assert.assertTrue(Title.contains("Disfrutá al aire libre"));
-        Assert.assertTrue(Content.contains("Diseños innovadores para complementar el exterior de tu casa"));
+        Assert.assertTrue(Title.contains("Bebés"));
+        Assert.assertTrue(Content.contains("Productos para los pequeños de la casa"));
         Assert.assertTrue(Button.contains("Ver más"));
     }
 
