@@ -4,7 +4,7 @@ const { Builder, Browser, By } = require("selenium-webdriver");
 (async function pruebaReg16() {
   // Ejecutamos el navegador
   let driver = await new Builder().forBrowser(Browser.CHROME).build();
-
+  await driver.manage().window().maximize();
   //Se navega a la direccion del producto.
   await driver.get(
     "https://www.pricesmart.com/site/cr/es/pagina-producto/423554"
@@ -28,4 +28,7 @@ const { Builder, Browser, By } = require("selenium-webdriver");
       )
     )
     .click();
+  setTimeout(async () => {
+    await driver.close();
+  }, 1500);
 })();
